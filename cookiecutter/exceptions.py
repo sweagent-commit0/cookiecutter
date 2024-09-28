@@ -1,13 +1,11 @@
 """All exceptions used in the Cookiecutter code base are defined here."""
 
-
 class CookiecutterException(Exception):
     """
     Base exception class.
 
     All Cookiecutter-specific exceptions should subclass this class.
     """
-
 
 class NonTemplatedInputDirException(CookiecutterException):
     """
@@ -17,7 +15,6 @@ class NonTemplatedInputDirException(CookiecutterException):
     rendered to something else, so that input_dir != output_dir.
     """
 
-
 class UnknownTemplateDirException(CookiecutterException):
     """
     Exception for ambiguous project template directory.
@@ -25,9 +22,6 @@ class UnknownTemplateDirException(CookiecutterException):
     Raised when Cookiecutter cannot determine which directory is the project
     template, e.g. more than one dir appears to be a template dir.
     """
-
-    # unused locally
-
 
 class MissingProjectDir(CookiecutterException):
     """
@@ -37,9 +31,6 @@ class MissingProjectDir(CookiecutterException):
     directory inside of a repo.
     """
 
-    # unused locally
-
-
 class ConfigDoesNotExistException(CookiecutterException):
     """
     Exception for missing config file.
@@ -47,7 +38,6 @@ class ConfigDoesNotExistException(CookiecutterException):
     Raised when get_config() is passed a path to a config file, but no file
     is found at that path.
     """
-
 
 class InvalidConfiguration(CookiecutterException):
     """
@@ -57,14 +47,12 @@ class InvalidConfiguration(CookiecutterException):
     badly constructed.
     """
 
-
 class UnknownRepoType(CookiecutterException):
     """
     Exception for unknown repo types.
 
     Raised if a repo's type cannot be determined.
     """
-
 
 class VCSNotInstalled(CookiecutterException):
     """
@@ -73,7 +61,6 @@ class VCSNotInstalled(CookiecutterException):
     Raised if the version control system (git or hg) is not installed.
     """
 
-
 class ContextDecodingException(CookiecutterException):
     """
     Exception for failed JSON decoding.
@@ -81,14 +68,12 @@ class ContextDecodingException(CookiecutterException):
     Raised when a project's JSON context file can not be decoded.
     """
 
-
 class OutputDirExistsException(CookiecutterException):
     """
     Exception for existing output directory.
 
     Raised when the output directory of the project exists already.
     """
-
 
 class InvalidModeException(CookiecutterException):
     """
@@ -98,14 +83,12 @@ class InvalidModeException(CookiecutterException):
     `replay==True` at the same time.
     """
 
-
 class FailedHookException(CookiecutterException):
     """
     Exception for hook failures.
 
     Raised when a hook script fails.
     """
-
 
 class UndefinedVariableInTemplate(CookiecutterException):
     """
@@ -123,12 +106,7 @@ class UndefinedVariableInTemplate(CookiecutterException):
 
     def __str__(self):
         """Text representation of UndefinedVariableInTemplate."""
-        return (
-            f"{self.message}. "
-            f"Error message: {self.error.message}. "
-            f"Context: {self.context}"
-        )
-
+        return f'{self.message}. Error message: {self.error.message}. Context: {self.context}'
 
 class UnknownExtension(CookiecutterException):
     """
@@ -137,7 +115,6 @@ class UnknownExtension(CookiecutterException):
     Raised when an environment is unable to import a required extension.
     """
 
-
 class RepositoryNotFound(CookiecutterException):
     """
     Exception for missing repo.
@@ -145,14 +122,12 @@ class RepositoryNotFound(CookiecutterException):
     Raised when the specified cookiecutter repository doesn't exist.
     """
 
-
 class RepositoryCloneFailed(CookiecutterException):
     """
     Exception for un-cloneable repo.
 
     Raised when a cookiecutter template can't be cloned.
     """
-
 
 class InvalidZipRepository(CookiecutterException):
     """
